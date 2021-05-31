@@ -1,0 +1,11 @@
+#finding two values from list which when added together will form the target value given to us
+def twoSum(nums, target):
+        hashTable = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashTable:
+                return [hashTable[complement],i]
+            else:
+                hashTable[nums[i]]=i
+
+print(twoSum([1,2,3,4],4))
