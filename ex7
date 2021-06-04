@@ -1,0 +1,24 @@
+#reversing a signed integer but the value of result should lie between [-231, 231 - 1], otherwise return 0
+def reverse(x):
+    new, rem, count = 0, 0, 0
+    t = 2**32
+
+    if x < 0:
+        x = -(x)
+        count = 1
+
+    while x > 0:
+        rem = x % 10
+        new = (new * 10) + rem
+        x = x // 10
+
+    if count == 1:
+        new = -(new)
+
+    if new <= -t or new >= t-1:
+        new = 0
+        return new
+
+    return new
+
+print(reverse(-2147483648))
