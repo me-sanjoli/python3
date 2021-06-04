@@ -1,0 +1,23 @@
+#finding out the palindrome of any number with constraints for input -2**31 <= x <= 2**31 - 1
+
+def isPalindrome(x):
+        new, rem, og= 0, 0, x
+        t = 2**31
+        if x <= -t or x >= t-1:
+            return False
+    
+        if x < 0:
+            return False
+        
+        while x > 0:
+            rem = x % 10
+            new = (new * 10) + rem
+            x = x // 10
+         
+        if og == new:
+            return True
+        
+        else:
+            return False
+
+print(isPalindrome(-121))
