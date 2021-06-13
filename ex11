@@ -1,0 +1,21 @@
+# find if the given input number in list format is correctly formatted or not
+
+def FormattedNumber(strArr):
+  s = str(strArr[0])
+  res = s.split(".")
+  if len(res) > 2:
+    return False
+  if res[0] == 0 and len(res) == 2:
+    return True
+  for each in range (0, len(res)):
+    st = str(res[each])
+    res1 =  st.split(",")
+    if len(res1) == 1:
+      return True
+    l = len(res1) - 1
+    if len(res1[l]) > len(res1[l-1]) and len(res1[l]) == 3:
+      return True
+    return False
+    
+print(FormattedNumber(['6,790,908,907.0026531']))
+    
