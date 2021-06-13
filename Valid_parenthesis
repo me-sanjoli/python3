@@ -1,0 +1,15 @@
+# find out if the opening and closing of parenthesis is valid or not
+def isValid(s):
+        op_map = {"{": "}", "[": "]", "(": ")"}
+        stack = []
+        for ch in s:
+            if ch in op_map:
+                stack.append(op_map[ch])
+            elif not stack or (stack and stack.pop() != ch):
+                return False
+        return not stack
+        
+print (isValid("{[({})]}"))
+print (isValid("{[)}"))
+        
+        
