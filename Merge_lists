@@ -1,0 +1,19 @@
+#append two lists retaining common values 
+class ListNode(object):
+    def __init__(val=0, nextNode = None):
+        self.val = val
+        self.next = nextNode
+    def mergeTwoLists(l1, l2):
+        if l1 is None:
+            return l2
+        elif l2 is None:
+            return l1
+        if l1.val <= l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
+ l1=[1,2,3,6]
+ l2=[4,5,6,7]
+print(ListNode.mergeTwoLists(l1,l2))
