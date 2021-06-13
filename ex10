@@ -1,0 +1,13 @@
+#challenge: to perform a get request and from the data extracted which contains pre-existing parameter 'age' that how many values for age is greater than 50
+import requests
+import numpy as np
+import pandas as pd
+
+r = requests.get('https://coderbyte.com/api/challenges/json/age-counting')
+result = r.json()['data'].split(",")
+count = 0
+for data in result:
+  splt = data.split("=")
+  if splt[0].strip() == 'age' and int(splt[1]) >= 50:
+    count +=1
+print (count)
