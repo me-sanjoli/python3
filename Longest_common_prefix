@@ -1,0 +1,20 @@
+# find longest common prefix from the list of strings 
+def longestCommonPrefix(strs):
+        if len(strs) == 0:
+            return ""
+        sm = len(strs[0])
+        for a in strs:
+            sm = min(sm, len(a))
+
+        if sm == 0:
+            return ""
+        result = ""
+        for b in range(sm):
+            temp = strs[0][b]
+            for value in strs:
+                if value[b] != temp:
+                    return result
+            result += temp
+        return result
+        
+print(longestCommonPrefix(['flower','flow', 'flight']))
