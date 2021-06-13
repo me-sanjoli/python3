@@ -1,0 +1,53 @@
+# from given input list of string containing card value, find out if the user has got blackjack or not, and also return highest card value along with that(basic understanding of blackjack game is necessary)
+def BlackjackHighest(strArr):
+  sample = {
+    "two" : 2,
+    "three" : 3,
+    "four" : 4,
+    "five" : 5,
+    "six" : 6,
+    "seven" : 7,
+    "eight" : 8,
+    "nine" : 9,
+    "ten" : 10,
+    "jack" : 10,
+    "queen" : 10,
+    "king" : 10,
+    "ace" : 11
+  } 
+  s = ''
+  m_val = 0
+  m_res = ''
+  res = 0
+  a = 0
+  j = 0
+  q = 0
+  k = 0
+  for each in range (0, len(strArr)):
+    if strArr[each] == 'ace':
+      a += 1
+    if strArr[each] == 'king':
+      k += 1
+    if strArr[each] == 'queen':
+      q += 1
+    if strArr[each] == 'jack':
+      j += 1
+    if strArr[each] in sample:
+      res += sample.get(strArr[each])     
+  if res > 21 and a>0:
+    sample["ace"] = 1 
+    res = res -11 +1
+  
+  for k in range (0, len(strArr)):
+    m_val = max(m_val,sample.get(strArr[k]))
+  
+  m_res = list(sample.keys())[list(sample.values()).index(m_val)] 
+  if res > 21:
+    s = 'above ' + m_res
+  elif res < 21:
+    s = 'below ' + m_res
+  else:
+    s = 'blackjack ' + m_res
+  return s
+
+print BlackjackHighest(['ace', 'ten', 'two'])
