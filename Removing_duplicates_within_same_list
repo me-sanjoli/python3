@@ -1,3 +1,4 @@
+#program to remove a duplicate element from list without using any additional list
 def removeDuplicates(nums):
     count = 0
     for each in range(0, len(nums)):
