@@ -1,0 +1,5 @@
+#find index value of needle, if needle is empty then return 0
+def strStr(haystack, needle):
+    return (haystack.find(needle) + 1)
+
+print(strStr("sanjoli","li"))
