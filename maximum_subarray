@@ -25,3 +25,13 @@ def maxSubArray(nums):
         return daq(0, len(nums) - 1)
 item = [-2,1,4,6,-9]
 print(maxSubArray(item))
+
+
+#another solution
+ def maxSubArray(self, nums):
+        l = [nums.pop(0)]
+        for i in range(len(nums)):
+            l.append(max(nums[i] , l[-1]+nums[i]))
+        
+        return max(l)
+        
