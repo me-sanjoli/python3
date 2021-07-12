@@ -1,0 +1,8 @@
+# when a person can climb n stairs by only 2 ways : 1 step at a time and 2 steps at a time, calculating no. of ways they can climb n steps.
+    def climbStairs(n):
+        def fib(s):
+            if s <= 1:
+                return s
+            return fib(s-1) + fib(s-2)
+        return fib(n+1)
+    print(climbStairs(4))
