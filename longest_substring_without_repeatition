@@ -1,0 +1,17 @@
+def lengthOfLongestSubstring(s):
+    res = ""
+    maxlen = 0
+    res = []
+    for i in range (0,len(s)):
+        if s[i] in res:
+            res = res[res.index(s[i])+1:] + [s[i]]
+            maxlen = max(maxlen, len(res))
+
+        else:
+            res.append(s[i])
+            maxlen = max(maxlen,len(res))
+    return maxlen
+
+
+
+print(lengthOfLongestSubstring("abcaabbbccdef"))
